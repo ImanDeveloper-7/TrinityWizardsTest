@@ -21,7 +21,14 @@ class ContactsListVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ContactDetailVC {
-            vc.contacts = self.contacts
+            guard let indexPath = sender as? IndexPath else { return }
+            
+            let contact = self.contacts[indexPath.row]
+            
+            vc.firstName = contact.firstName
+            vc.lastName = contact.lastName
+            vc.email = contact.email
+            vc.phone = contact.phone
         }
     }
     
