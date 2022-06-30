@@ -16,7 +16,7 @@ class ContactsListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        self.parseJSON()
+        self.doGetContacts()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,7 +36,7 @@ class ContactsListVC: UIViewController {
         self.tbl_contacts.register(ContactCell.nib(), forCellReuseIdentifier: ContactCell.identifier)
     }
     
-    private func parseJSON() {
+    private func doGetContacts() {
         guard let path = Bundle.main.path(forResource: "data", ofType: "json") else { return }
         
         let url = URL(fileURLWithPath: path)
