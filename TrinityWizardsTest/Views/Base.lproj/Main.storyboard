@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZMe-MC-Wfo">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Contacts-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ContactsListVC" customModule="TrinityWizardsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HXg-Lv-5JB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="gPO-aZ-FA6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="NBr-tr-CQY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HXg-Lv-5JB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SrA-fW-YCT"/>
+                            <constraint firstItem="HXg-Lv-5JB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UHD-Hk-ZzO"/>
+                            <constraint firstItem="HXg-Lv-5JB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="epy-YP-bqu"/>
+                            <constraint firstAttribute="bottom" secondItem="HXg-Lv-5JB" secondAttribute="bottom" id="kjX-0a-ESx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="UFH-GJ-hp8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="amu-jE-K6H">
+                            <color key="tintColor" red="1" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Vg-5E-XiZ">
+                            <color key="tintColor" red="1" green="0.5490196078431373" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tbl_contacts" destination="HXg-Lv-5JB" id="wm9-Wt-spo"/>
+                        <segue destination="pu7-mO-42W" kind="presentation" identifier="goToDetails" modalPresentationStyle="fullScreen" id="mq0-kM-m3i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="124.55357142857142"/>
+        </scene>
+        <!--Contact DetailVC-->
+        <scene sceneID="CAo-Di-w8W">
+            <objects>
+                <viewController id="pu7-mO-42W" customClass="ContactDetailVC" customModule="TrinityWizardsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M3R-cs-hAx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HS4-V5-A5l">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="fd6-xU-B6V">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QeB-k3-9mB">
+                                            <color key="tintColor" red="1" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="dismiss:" destination="pu7-mO-42W" id="Ymn-MW-AAA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="R7P-eh-r2W">
+                                            <color key="tintColor" red="1" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="save:" destination="pu7-mO-42W" id="ilA-hi-tFL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sNx-Qq-oJO">
+                                <rect key="frame" x="147" y="108" width="120" height="120"/>
+                                <color key="backgroundColor" red="1" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="8MO-K0-eXG"/>
+                                    <constraint firstAttribute="height" constant="120" id="mqA-Ks-jLt"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zgK-CS-U25"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HS4-V5-A5l" firstAttribute="trailing" secondItem="zgK-CS-U25" secondAttribute="trailing" id="0au-dq-jLe"/>
+                            <constraint firstItem="HS4-V5-A5l" firstAttribute="leading" secondItem="zgK-CS-U25" secondAttribute="leading" id="3eb-SN-VcA"/>
+                            <constraint firstItem="HS4-V5-A5l" firstAttribute="top" secondItem="zgK-CS-U25" secondAttribute="top" id="72C-SA-kY4"/>
+                            <constraint firstItem="sNx-Qq-oJO" firstAttribute="centerX" secondItem="M3R-cs-hAx" secondAttribute="centerX" id="AkB-9v-Mhz"/>
+                            <constraint firstItem="sNx-Qq-oJO" firstAttribute="top" secondItem="HS4-V5-A5l" secondAttribute="bottom" constant="20" id="rBF-GE-hvs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="LGy-s0-SR7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TcQ-Dy-JRF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857.9710144927537" y="124.55357142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EUe-h7-SSe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZMe-MC-Wfo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qTh-wr-PpD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="msA-yX-Q2H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2P-hg-ljW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
